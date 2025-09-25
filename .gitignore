@@ -1,4 +1,5 @@
 /venv
+/staticfiles
 **/.vscode
 db.sqlite3
 .env
