@@ -34,7 +34,7 @@ ALLOWED_HOSTS = [os.environ.get("DJANGO_ALLOWED_HOST", "localhost")]
 INSTALLED_APPS = [
     'beopen_web.apps.BeopenWebConfig',
     # 'django.contrib.admin',
-    # 'django.contrib.auth',
+    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
