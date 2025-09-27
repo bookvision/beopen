@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <article itemscope itemtype="http://schema.org/BlogPosting">
+  <h1 class="post_head" itemprop="name headline">{{ post.post_title }}</h1>
+  <time class="post_time" datetime="{{ post.create_time | date:"c" }}" itemprop="datePublished">{{ post.create_time | date:"Y年m月d日" }}</time>
+  <div class="post_body" itemprop="articleBody">
+    {{ content|safe }}
+  </div>
+  </article>
+{% endblock %}

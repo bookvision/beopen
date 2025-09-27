@@ -33,7 +33,7 @@ ALLOWED_HOSTS = [os.environ.get("DJANGO_ALLOWED_HOST", "localhost")]
 
 INSTALLED_APPS = [
     'beopen_web.apps.BeopenWebConfig',
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -63,6 +63,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'beopen_web.context_processors.global_vars',
             ],
         },
     },

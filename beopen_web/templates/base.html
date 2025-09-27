@@ -1,0 +1,37 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8" />
+    <title>{{ SITE_TITLE }}</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container"><a class="title_text" href="/">{{ SITE_TITLE }}</a></div>
+    </header>
+    <main>
+        <div class="container">
+{% block content %}{% endblock %}
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div>{{ SITE_TITLE }}<span class="footer_data">Email: {{EMAIL_ADDRESS}}</span></div>
+            <ul class="social_list">
+                {% for s in SOCIAL_MEDIAS %}
+                <li class="social_list_item">
+                    <a href={{s.link}} target="_blank"><img src="{% static s.icon %}" class="social_icon"><span class="social_name">{{s.name}}</span></a>
+                </li>
+                {% endfor %}
+            </ul>
+            <p class="footer_power">Proudly powered by myself.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

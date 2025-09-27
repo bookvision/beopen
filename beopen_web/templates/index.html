@@ -1,21 +1,13 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<!doctype html>
-<html lang="en-US">
-
-<head>
-    <meta charset="utf-8" />
-    <title>{{ site_title }}</title>
-    <link rel="stylesheet" href="{% static 'main.css' %}">
-</head>
-
-<body>
-    <header class="header">
-        <div class="container"><a class="title_text" href="/">{{ site_title }}</a></div>
-    </header>
-    <main>
-        <div class="container"><h3>站点装修中……</h2></div>
-    </main>
-</body>
-
-</html>
+{% block content %}
+<ul class="post_list">
+    {% for p in post_list %}
+    <li>
+        <span class="post_meta">{{ p.create_time | date:"Y-m-d" }}</span>
+        <h3 class="post_title"><a href="{% url 'post' name=p.post_name %}">{{p.post_title}}</a></h3>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

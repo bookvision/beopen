@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+import os
 
+admin_url = os.environ.get("ADMIN_URL", "admin")
 urlpatterns = [
-    # path('admin/', admin.site.urls),
+    path(admin_url, admin.site.urls),
     path("", include("beopen_web.urls")),
 ]
