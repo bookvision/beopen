@@ -4,6 +4,7 @@ import markdown
 from beopen_web.models import Post
 from django.conf import settings
 import os
+from django.db.models import F
 
 class PostView(View):
 
@@ -13,10 +14,14 @@ class PostView(View):
 
         post_file_dir = os.path.abspath(os.path.join(base_dir, "..", os.environ.get("POST_FILE_DIR")))
 
-        post = Post.objects.filter(post_name = name).first()
+        post_record = Post.objects.filter(post_name = name)
+        post = post_record.first()
+
         with open(os.path.join(post_file_dir, post.content_file_path), "r", encoding="utf-8") as f:
             md_content = f.read()
 
         html_content = markdown.markdown(md_content)
+
+        post_record.update(visit_count = F("visit_count") + 1)
 
         return render(request, "post.html", {"content": html_content, "post": post})
