@@ -12,7 +12,10 @@
 
 <body>
     <header class="header">
-        <div class="container"><a class="title_text" href="/">{{ SITE_TITLE }}</a></div>
+        <div class="container">
+            <a class="title_text" href="/">{{ SITE_TITLE }}</a>
+            <a class="rss_test" href="{% url 'atom_feed' %}"><img src="{% static 'icon-rss.png' %}" class="rss_icon">feed</a>
+        </div>
     </header>
     <main>
         <div class="container">
@@ -33,5 +36,4 @@
         </div>
     </footer>
 </body>
-
 </html>

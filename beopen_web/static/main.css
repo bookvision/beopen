@@ -11,6 +11,19 @@ body {
     height: 60px;
 }
 
+.rss_test {
+    float: right;
+    line-height: 60px;
+}
+
+.rss_icon {
+    display: inline-block;
+    vertical-align: text-top;
+    height: 16px;
+    width: 16px;
+    padding-right: 5px;
+}
+
 .container {
     max-width: 960px;
     margin-left: auto;
