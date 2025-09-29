@@ -5,6 +5,7 @@ from beopen_web.models import Post
 from django.conf import settings
 import os
 from django.db.models import F
+from django.http import HttpResponseNotFound
 
 class PostView(View):
 
@@ -16,6 +17,9 @@ class PostView(View):
 
         post_record = Post.objects.filter(post_name = name)
         post = post_record.first()
+
+        if post == None:
+            return HttpResponseNotFound("页面不存在")
 
         with open(os.path.join(post_file_dir, post.content_file_path), "r", encoding="utf-8") as f:
             md_content = f.read()
