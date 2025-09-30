@@ -16,7 +16,7 @@ class BeopenFeed(Feed):
         return item.post_title
 
     def item_link(self, item):
-        return f"/post/{item.post_name}/"
+        return f"/post/{item.post_name}"
 
     def item_pubdate(self, item):
         return item.create_time
