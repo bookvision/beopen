@@ -5,8 +5,6 @@ def global_vars(request):
     social_media_links = os.environ.get("SOCIAL_MEIDA_LINKS", "").split(",")
     social_media_icons = os.environ.get("SOCIAL_MEIDA_ICONS", "").split(",")
 
-
-
     social_medias = [
         {"name": n, "link": a, "icon": c}
         for n, a, c in zip(social_media_names, social_media_links, social_media_icons)
