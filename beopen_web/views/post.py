@@ -6,6 +6,7 @@ from django.conf import settings
 import os
 from django.db.models import F
 from django.http import HttpResponseNotFound
+import re
 
 class PostView(View):
 
@@ -25,7 +26,9 @@ class PostView(View):
             md_content = f.read()
 
         html_content = markdown.markdown(md_content)
+        match = re.search(r"<p>(.*?)</p>", html_content, re.S)
+        first_paragraph = match.group(1).strip() if match else ""
 
         post_record.update(visit_count = F("visit_count") + 1)
 
-        return render(request, "post.html", {"content": html_content, "post": post})
+        return render(request, "post.html", {"content": html_content, "post": post, "desc": first_paragraph})

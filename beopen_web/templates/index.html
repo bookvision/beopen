@@ -1,6 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block seo_block %}
+<title>{{ SITE_TITLE }}</title>
+<meta property="og:title" content="{{ SITE_TITLE }}" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="/" />
+<meta property="og:url" content="/" />
+<meta property="og:site_name" content="{{ SITE_TITLE }}" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="{{ SITE_TITLE }}" />
+<script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebSite","headline":"{{ SITE_TITLE }}","name":"{{ SITE_TITLE }}","url":"/"}
+</script>
+{% endblock %}
+
 {% block content %}
 <ul class="post_list">
     {% for p in post_list %}
